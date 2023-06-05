@@ -31,6 +31,10 @@ def import_single_image(filename: str, model: clip_model.CLIPModel,
         new_basename = md5hash + '.' + filetype
         new_full_path = utils.get_full_path(config['import-image-base'], new_basename)
 
+        dirname = os.path.dirname(new_full_path)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+
         if os.path.isfile(new_full_path):
             print("duplicate file:", filename)
             return
