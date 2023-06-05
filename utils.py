@@ -7,7 +7,8 @@ from functools import lru_cache
 
 import pymongo
 from pymongo.collection import Collection
-import clip
+import cn_clip.clip as clip
+from cn_clip.clip import load_from_name, available_models
 
 
 @lru_cache(maxsize=1)
@@ -16,7 +17,7 @@ def get_config():
         c = json.load(json_data_file)
 
     if "clip-model" in c:
-        assert c["clip-model"] in clip.available_models()
+        assert c["clip-model"] in available_models()
     if "device" in c:
         assert c["device"] in ["cuda", "cpu"]
     return c

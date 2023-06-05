@@ -4,7 +4,9 @@ from functools import lru_cache
 
 from PIL import Image
 import torch
-import clip
+import cn_clip.clip as clip
+from cn_clip.clip import load_from_name, available_models
+
 
 import utils
 
@@ -23,7 +25,7 @@ class CLIPModel():
         args = {}
         if 'clip-model-download' in self.config:
             args['download_root'] = self.config['clip-model-download']
-        return clip.load(self.config['clip-model'], device=self.device, **args)
+        return load_from_name(self.config['clip-model'], device=self.device, **args)
 
     def get_image_feature(self, image_path):
         try:

@@ -10,7 +10,7 @@
     "device": "cpu",
     "storage-type": "float32",
 
-    "clip-model": "ViT-B/32",
+    "clip-model": "ViT-B-16",
     "clip-model-download": "./models",
     "import-image-base": "./data",
 
