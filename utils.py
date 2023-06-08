@@ -28,6 +28,8 @@ def get_feature_size(model_name):
         return 512
     elif model_name == "ViT-L/14":
         return 768
+    elif model_name == "ViT-B-16":
+        return 565
     else:
         raise ValueError("Unknown model")  # TODO: complete this table
 
